@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>人因工程学控制面板实验</title>
+		<script src="./panel.js"></script>
+		<style>
+			button{
+				color: purple;
+				background-color: orange;
+			}
+			#panel {
+				overflow: hidden;
+				border: 1mm solid orange;
+				width: 22cm;
+				height: 11cm;
+				background-color: royalblue;
+			}
+			#displayer{
+				border: 1mm solid orange;
+				font-size: 1cm;
+				width: 22cm;
+			}
+			#funplayer{
+				border: 1mm solid orange;
+				font-size: 5mm;
+				width: 22cm;
+			}
+			.strbutton{
+				width: 1.8cm;
+				height: 1.3cm;
+				font-size: 0.5cm;
+			}
+			#numboard{
+				float: left;
+				width:7cm;
+				position: relative;
+				top: 3mm;
+				left: 3mm;
+			}
+			#chaboard{
+				float: left;
+				position: relative;
+				left: 5mm;
+				top: 3mm;
+			}
+			#funboard{
+				float: left;
+				position: relative;
+				top: -13mm;
+				left:3mm;
+			}
+			.postaker{
+				width: 1.8cm;
+				height: 1.3cm;
+				font-size: 0.5cm;
+				visibility: hidden;
+			}
+			.funbutton{
+				width: 2.8cm;
+				height: 1.3cm;
+				font-size: 0.5cm;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="displayer">
+		<input type="text" id="funplayer">
+		<div id="panel">
+			<div id="numboard">
+				<p>
+				<button class="strbutton" id="1" onclick="panel()">1</button>
+				<button class="strbutton" id="2" onclick="panel()">2</button>
+				<button class="strbutton" id="3" onclick="panel()">3</button>
+				</p>
+				<p>
+				<button class="strbutton" id="4" onclick="panel()">4</button>
+				<button class="strbutton" id="5" onclick="panel()">5</button>
+				<button class="strbutton" id="6" onclick="panel()">6</button>
+				</p>
+				<p>
+				<button class="strbutton" id="7" onclick="panel()">7</button>
+				<button class="strbutton" id="8" onclick="panel()">8</button>
+				<button class="strbutton" id="9" onclick="panel()">9</button> 
+				</p>
+				<button class="postaker">O</button>
+				<button class="strbutton" id="0" onclick="panel()">0</button>
+			</div>
+			<div id="chaboard">
+				<p>
+				<button class="strbutton" id="A" onclick="panel()">A</button>
+				<button class="strbutton" id="B" onclick="panel()">B</button>
+				<button class="strbutton" id="C" onclick="panel()">C</button>
+				<button class="strbutton" id="D" onclick="panel()">D</button>
+				<button class="strbutton" id="E" onclick="panel()">E</button>
+				<button class="strbutton" id="F" onclick="panel()">F</button>
+				<button class="strbutton" id="G" onclick="panel()">G</button>
+				</p>
+				<p>
+				<button class="strbutton" id="H" onclick="panel()">H</button>
+				<button class="strbutton" id="I" onclick="panel()">I</button>
+				<button class="strbutton" id="J" onclick="panel()">J</button>
+				<button class="strbutton" id="K" onclick="panel()">K</button>
+				<button class="strbutton" id="L" onclick="panel()">L</button>
+				<button class="strbutton" id="M" onclick="panel()">M</button>
+				<button class="strbutton" id="N" onclick="panel()">N</button>
+				</p>
+				<p>
+				<button class="strbutton" id="O" onclick="panel()">O</button>
+				<button class="strbutton" id="P" onclick="panel()">P</button>
+				<button class="strbutton" id="Q" onclick="panel()">Q</button>
+				<button class="postaker">O</button>
+				<button class="strbutton" id="R" onclick="panel()">R</button>
+				<button class="strbutton" id="S" onclick="panel()">S</button>
+				<button class="strbutton" id="T" onclick="panel()">T</button>
+				</p>
+				<p>
+				<button class="strbutton" id="U" onclick="panel()">U</button>
+				<button class="strbutton" id="V" onclick="panel()">V</button>
+				<button class="strbutton" id="W" onclick="panel()">W</button>
+				<button class="postaker">O</button>
+				<button class="strbutton" id="X" onclick="panel()">X</button>
+				<button class="strbutton" id="Y" onclick="panel()">Y</button>
+				<button class="strbutton" id="Z" onclick="panel()">Z</button>
+				</p>
+				<p>
+				<button class="funbutton" id="DEL_" onclick="funpanel()">DEL</button>
+				<button class="funbutton" id="INSERT_" onclick="funpanel()">INSERT</button>
+				<button class="postaker">o</button>
+				<button class="funbutton" id="MENU_" onclick="funpanel()">MENU</button>
+				<button class="funbutton" id="RESET_" onclick="funpanel()">RESET</button>
+				</p>
+			</div>
+			<div id="funboard">
+				<button class="funbutton" id="AUTO_" onclick="funpanel()">AUTO</button>
+				<button class="funbutton" id="GRAPH_" onclick="funpanel()">GRAPH</button><br />
+				<button class="funbutton" id="ALTER_" onclick="funpanel()">ALTER</button>
+				<button class="funbutton" id="GOTO_" onclick="funpanel()">GOTO</button>
+			</div>
+		</div>
+		完成所用时间：<input type="text" id="time"/>
+		选择配色：
+		<select id="sel" onchange="color()">
+			<option value="0">默认</option>
+			<option value="1" onclick="color()" id="c1">配色1</option>
+			<option value="2" onclick="color()" id="c2">配色2</option>
+			<option value="3" onclick="color()" id="c3">配色3</option>
+			<option value="4" onclick="color()" id="c4">配色4</option>
+			<option value="5" onclick="color()" id="c5">配色5</option>
+		</select>
+		选择任务：
+		<select id="seltask" onchange="task()">
+			<option value="1">任务1</option>
+			<option value="2">任务2</option>
+			<option value="3">任务3</option>
+			<option value="4">任务4</option>
+			<option value="5">任务5</option>
+		</select>
+		<a href="report1.doc" target="_blank">实验报告下载</a>
+		<input type="button" value="重置" onclick="history.go(0)" />
+	</body>
+</html>
